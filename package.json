@@ -1,6 +1,6 @@
 {
   "name": "m.noansi",
-  "version": "0.0.1-rc.0",
+  "version": "0.0.1",
   "author": "Ivo von Putzer Reibegg <ivo.putzer@gmail.com> (https://github.com/ivoputzer)",
   "description": "m(icro)noansi is a lightweight es6+ library that removes ansi escape codes.",
   "homepage": "https://github.com/ivoputzer/node-noansi#readme",
