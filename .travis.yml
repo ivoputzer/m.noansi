@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- 7.5
+- 7.0
+- 6.9
+- 6.0
+before_script: npm run lint
+deploy:
+  provider: npm
+  skip_cleanup: true
+  email: ivo.putzer@gmail.com
+  api_key:
+    secure: cfQAQqG+z8Yl/aUVkeqZlAmoaGjqLoSvSUuC4m/BAZ/6784rB5hhvokLUcMtzFNiLWk6CUshXEweVTQTnudDGHJjqs3A1Qp3f8bQcEYyXW5oax2kgYJjdRg/VceufsKGfVjZp6XwhY3HffrA77tK2yL9uNi26wuL7ichkdZe6pCaY/tqPNYQtMRmx2s4uguOq3TwwR6j8ffKlopbV+vn5jjWV6B+1CCY+EYKChN+Hb8SwYxCC/NI1VLRquoLCEudIB/6AOoEN5YTdJp7pK/mHQlpIRd/OjxW7pr80cyoQ8olfYgmUZA+QGrQoB9RZfJLpYDKGnIOY9S4yfMqnnE3Tufvq1VRbXmDxMBzfxc+/iXNtbeQTcZ5Ox7JFnxlSAWj1kUftx6MT6NldgRANut1qrH3pOBgRpoUZB6YcFBX8qz9ZXUmxYSvTjR0+1CaUhHRVJPAT5J59qgvCg+wOXkYgkzYxZDYgAQXqgiHuq85muNaZtX7RK9W9ArU1ytLcRPWSaZJL6q13ZvuGYPZk5DNhhRXcA5VG9B1ZUEWb33W+b2DdTnnu/f+alIIOzGv1yTF8WrrtYcUFLPe6I1yGFyf/M6yh1bES/NkdQbnQaoDkbvg2skhDPMmN1qhd+Bl0EPmd4zWEm4tXb6JVGHURX4tHKi+8HyoUvyt+H5fNwF2cxE=
+  on:
+    repo: ivoputzer/node-noansi
+    tags: false
+    branch: master

@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+const dirname = require('path').dirname
+const eol = require('os').EOL
+const noansi = require(dirname(dirname(require.main.filename)))
+
+if (process.stdin.isTTY) {
+  process.stderr.write('no input provided.' + eol)
+  process.exit(1)
+}
+
+process.stdin.pipe(noansi).pipe(process.stdout)
