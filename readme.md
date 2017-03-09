@@ -8,7 +8,6 @@ once installed the module can be used as a regular transform stream.
 
 ```javascript
 const noansi = require('m.noansi')
-
 process.stdin.pipe(noansi).pipe(process.stdout)
 ```
 
