@@ -1,9 +1,9 @@
 {
   "name": "m.noansi",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Ivo von Putzer Reibegg <ivo.putzer@gmail.com> (https://github.com/ivoputzer)",
   "description": "m(icro)noansi is a lightweight es6+ library that removes ansi escape codes.",
-  "homepage": "https://github.com/ivoputzer/node-noansi#readme",
+  "homepage": "https://github.com/ivoputzer/m.noansi#readme",
   "keywords": ["m!cro", "noansi", "ansi", "escape", "regex", "stream", "cli", "prune", "strip", "trim", "remove", "color", "colors", "terminal", "console", "string", "tty", "formatting", "rgb", "shell", "xterm", "log", "command-line", "text"],
   "main": "index.js",
   "bin": {
@@ -17,11 +17,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ivoputzer/node-noansi.git"
+    "url": "git+https://github.com/ivoputzer/m.noansi.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ivoputzer/node-noansi/issues"
+    "url": "https://github.com/ivoputzer/m.noansi/issues"
   },
   "devDependencies": {
     "m.test": "0.0.53",
