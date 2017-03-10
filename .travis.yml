@@ -1,13 +1,9 @@
 language: node_js
 node_js:
-- 7
+- 7 # latest
 - 7.0
-- 6
+- 6 # latest
 - 6.0
-- 5
-- 5.0
-- 4
-- 4.0
 before_script: npm run lint
 deploy:
   provider: npm
