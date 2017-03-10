@@ -3,12 +3,20 @@
 
 **[m(icro)](https://github.com/ivoputzer/m.cro#readme)[noansi](https://github.com/ivoputzer/m.noansi)** is a lightweight es6+ library that removes [ansi escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code).
 
-### usage
-once installed the module can be used as a regular transform stream.
-
+### stream replacement
+the module itself exports a [transform](https://nodejs.org/api/stream.html#stream_class_stream_transform) [stream](https://nodejs.org/api/stream.html) that can be used according to its api.
 ```javascript
 const noansi = require('m.noansi')
+
 process.stdin.pipe(noansi).pipe(process.stdout)
+```
+
+### string replacement
+the `noansi` method is used internally within the transform stream but can be used safely to replace string and buffers.
+```javascript
+const {noansi} = require('m.noansi')
+
+noansi('\u001b[4mfoobar\u001b[0m') // => 'foobar'
 ```
 
 ### cli usage
