@@ -1,5 +1,5 @@
 module.exports = require('stream').Transform({
-  transform: function (data, _, next) {
+  transform (data, _, next) {
     next(null, module.exports.noansi(data))
   }
 })
