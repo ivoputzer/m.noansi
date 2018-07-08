@@ -1,16 +1,17 @@
 const {ok, equal} = require('assert')
 
 test('exports', () => {
-  const {noansi} = require('..')
+  const {noansi, regex} = require('..')
 
   test('is of type `stream.Transform`', () => {
-    ok(exports instanceof require('stream').Transform)
+    const stream = require('stream')
+    const exports = require('..')
+    ok(exports instanceof stream.Transform)
   })
 
   test('.regex', () => {
-    test.skip('is regex', () => {
-      ok(exports.hasOwnProperty('regex'))
-      ok(exports.regex instanceof RegExp)
+    test('is regex', () => {
+      ok(regex instanceof RegExp)
     })
   })
 
