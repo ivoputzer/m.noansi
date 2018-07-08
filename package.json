@@ -4,16 +4,54 @@
   "author": "Ivo von Putzer Reibegg <ivo.putzer@gmail.com> (https://github.com/ivoputzer)",
   "description": "m(icro)noansi is a lightweight es6+ library that removes ansi escape codes.",
   "homepage": "https://github.com/ivoputzer/m.noansi#readme",
-  "keywords": ["m!cro", "noansi", "ansi", "escape", "regex", "stream", "cli", "prune", "strip", "trim", "remove", "color", "colors", "terminal", "console", "string", "tty", "formatting", "rgb", "shell", "xterm", "log", "command-line", "text"],
+  "keywords": [
+    "m!cro",
+    "noansi",
+    "ansi",
+    "escape",
+    "regex",
+    "stream",
+    "cli",
+    "prune",
+    "strip",
+    "trim",
+    "remove",
+    "color",
+    "colors",
+    "terminal",
+    "console",
+    "string",
+    "tty",
+    "formatting",
+    "rgb",
+    "shell",
+    "xterm",
+    "log",
+    "command-line",
+    "text"
+  ],
   "main": "index.js",
   "bin": {
     "noansi": "bin/noansi",
     "m.noansi": "bin/noansi"
   },
   "scripts": {
+    "pretest": "standard",
     "test": "m.test",
-    "lint": "standard",
-    "node": "node"
+    "coverage": "node --require ./node_modules/m.test/global.js ./node_modules/istanbul/lib/cli.js cover --print detail test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "m.test": "0.0.57",
+    "standard": "^11.0.1"
+  },
+  "optionalDependencies": {
+    "istanbul": "^0.4.5"
+  },
+  "standard": {
+    "global": [
+      "test"
+    ]
   },
   "engines": {
     "node": ">=6"
@@ -25,9 +63,5 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ivoputzer/m.noansi/issues"
-  },
-  "devDependencies": {
-    "m.test": "0.0.53",
-    "standard": "^9.0.1"
   }
 }
