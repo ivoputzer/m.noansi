@@ -1,17 +1,32 @@
 language: node_js
+install: npm install --no-optional
+git:
+  depth: 1
 node_js:
-- 7 # latest
-- 7.0
-- 6 # latest
-- 6.0
-before_script: npm run lint
-deploy:
-  provider: npm
-  skip_cleanup: true
-  email: ivo.putzer@gmail.com
-  api_key:
-    secure: 0adyxcC0ZT2b4vVeHVQyQ15uCGR9uGZL+zjTGzzUNkcqH08hloyXDTKwk/SNIZxkAVGKt2TxGVjVEQz88fMKS3GMkDIPCF2DamMUuCJoKv/fLxqmtbU67pkFEl3rTsPOgceMKWCnIaC4SIKyKXSirH1vqGQYAuqMnX5nDyr7loYJpAmeYlT4qcV5kkhlHtRHLqLQXjk8GBU4FgXwQHPEV1WaQM8451zh74wKR6AITzv31vsOrEWfRxngZ7d0O4MW6L2Uciido4CXMEbIOHEGinSWJAFz+t7SK4gnDQ8HrnCg+O2WNTRyo0+GXi4XkewB9HfVetOzfYGBFUrcP/q93MO3nfi182Ci3cdkShQeg9wxLEGMUcN+qgeeWwnQ8XEx3ysj38ZP/iYeyBFPwyqU1NXv/+coDgWCZIErE9jHvuGl+Mq5TKaUtcA3hZV0LoDHN408mkXiu7GeAU8VcIn/WMTYEin534LwLOz2gWZyEZMZkjWqXD2fRUqDyV5+W3vUeLYj0dRghs8d/WQWVeWCRyTBdvapxkv9sxZQ75UHxIiGsDSYQu0YatrqxSX10Uc8GMQwZ6Ex7pL063YeKghS23CNuSp7OYX+XurOtTab9pLvBDCO8LE8y9U1+81O402zgeK9OU9zzh2aMXAQTR7an3atnjqFYhXT9dVZy3dgggc=
-  on:
-    repo: ivoputzer/m.noansi
-    tags: false
-    branch: master
+- 10
+- 9
+- 8
+- 7
+- 6
+- 5
+- 4
+jobs:
+  include:
+  - stage: coverage
+    install: npm install istanbul coveralls
+    script: npm run coverage
+    after_success: cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
+  - stage: deploy
+    install: skip
+    script: skip
+    deploy:
+      provider: npm
+      email: ivo.putzer@gmail.com
+      api_key:
+        secure: 0adyxcC0ZT2b4vVeHVQyQ15uCGR9uGZL+zjTGzzUNkcqH08hloyXDTKwk/SNIZxkAVGKt2TxGVjVEQz88fMKS3GMkDIPCF2DamMUuCJoKv/fLxqmtbU67pkFEl3rTsPOgceMKWCnIaC4SIKyKXSirH1vqGQYAuqMnX5nDyr7loYJpAmeYlT4qcV5kkhlHtRHLqLQXjk8GBU4FgXwQHPEV1WaQM8451zh74wKR6AITzv31vsOrEWfRxngZ7d0O4MW6L2Uciido4CXMEbIOHEGinSWJAFz+t7SK4gnDQ8HrnCg+O2WNTRyo0+GXi4XkewB9HfVetOzfYGBFUrcP/q93MO3nfi182Ci3cdkShQeg9wxLEGMUcN+qgeeWwnQ8XEx3ysj38ZP/iYeyBFPwyqU1NXv/+coDgWCZIErE9jHvuGl+Mq5TKaUtcA3hZV0LoDHN408mkXiu7GeAU8VcIn/WMTYEin534LwLOz2gWZyEZMZkjWqXD2fRUqDyV5+W3vUeLYj0dRghs8d/WQWVeWCRyTBdvapxkv9sxZQ75UHxIiGsDSYQu0YatrqxSX10Uc8GMQwZ6Ex7pL063YeKghS23CNuSp7OYX+XurOtTab9pLvBDCO8LE8y9U1+81O402zgeK9OU9zzh2aMXAQTR7an3atnjqFYhXT9dVZy3dgggc=
+      on:
+        repo: $TRAVIS_REPO_SLUG
+        branch: master
+  allow_failures:
+  - node_js: 5
+  - node_js: 4
