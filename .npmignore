@@ -1,7 +1,7 @@
+node_modules/
 test/
 
-.travis.yml
-
+*.md
 *.log
-*.tgz
-*.todo
+.travis.yml
+.gitignore
